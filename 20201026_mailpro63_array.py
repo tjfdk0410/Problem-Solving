@@ -14,9 +14,6 @@ Output
 X = [1, 2, 3, 5, 6, 8, 9, 10, 15]
 """
 
-# m = input("The size of first array: ")
-# n = input("The size of second array: ")
-
 X = input('X =')
 Y = input('Y =')
 
