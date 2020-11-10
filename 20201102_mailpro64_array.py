@@ -8,32 +8,39 @@ Output: 7
 
 inp = input("Input: ")
 
-inp = inp[1:-1].split(", ")
+inp = inp[1:-1].split(",")
 new_arr = []
 for i in inp:
     new_arr.append(int(i))
 
-print(new_arr)
+# print(new_arr)
 
 def count_one(order, lst):
-    lst[order] = 1
-    print(lst)
+    new_lst = lst[:]
+    new_lst[order] = 1
+    # print(lst, new_lst)
     count = 0
     max_count = 0
-    for i in lst:
+    for i in new_lst:
+        # print(i)
         if i == 0:
             if max_count < count:
                 max_count = count
-            count ==0
-        else: count +=1
+            count =0
+        elif i == 1:
+            count +=1
+            if max_count < count:
+                max_count = count
     return max_count
 
 count_num = 0
 max_count_num =0
 index = 0
-for i in range(len(inp)):
-    if inp[i] == 0:
-        count_num = count_one(i, inp)
+for i in range(len(new_arr)):
+    if new_arr[i] == 0:
+        count_num = count_one(i, new_arr)
+        # print("숫자")
+        # print(count_num)
         if count_num > max_count_num:
             max_count_num = count_num
             index = i
