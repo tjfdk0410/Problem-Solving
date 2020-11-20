@@ -17,5 +17,24 @@ def dev2(x):
 def sub1(x):
     return x-1
 
+min_lst = []
+
+def three_exp(min_lst, num):
+    for i in range(num+1):
+        min_lst.append(-1)
+    min_lst[0]=0
+    for i in range(1, num+1):
+        if i ==1: min_lst[i] = 0
+        elif i%6 ==0:
+            min_lst[i]=min(min_lst[i//2], min_lst[i//3], min_lst[i-1])+1
+        elif i%3==0:
+            min_lst[i]=min(min_lst[i//3], min_lst[i-1])+1
+        elif i%2==0:
+            min_lst[i]= min(min_lst[i//2], min_lst[i-1])+1
+        else: min_lst[i] = min_lst[i-1]+1
+    # print(min_lst)
+    return min_lst[num]
 
 
+
+print(three_exp(min_lst, x))
